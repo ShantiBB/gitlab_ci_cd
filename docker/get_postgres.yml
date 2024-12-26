@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:17
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES__USER}
+      - POSTGRES_PASSWORD=${POSTGRES__PASSWORD}
+      - POSTGRES_HOST=${POSTGRES__HOST}
+      - POSTGRES_PORT=${POSTGRES__PORT}
+      - POSTGRES_DB=${POSTGRES__DB_NAME}
+    env_file:
+      - ../.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+volumes:
+  postgres_data:
+    driver: local
