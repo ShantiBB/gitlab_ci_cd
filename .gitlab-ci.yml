@@ -8,4 +8,4 @@ build:
   script:
     - bash -c "echo 'Start test'"
     - bash -c "sleep 10"
-    - bash -c "echo 'End test'"
+    - bash -c "echo 'Test complite'"
