@@ -1,0 +1,15 @@
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    platform: linux/amd64
+    container_name: gitlab
+    hostname: gitlab.local
+    restart: always
+    ports:
+      - "443:443"
+      - "80:80"
+      - "22:22"
+    volumes:
+      - ~/gitlab/config:/etc/gitlab
+      - ~/gitlab/logs:/var/log/gitlab
+      - ~/gitlab/data:/var/opt/gitlab
