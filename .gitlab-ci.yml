@@ -9,4 +9,4 @@ build:
     - bash -c "echo 'Start test'"
     - bash -c "sleep 5"
     - bash -c "echo 'Test complete'"
-    - bash -c "echo 'Hello MotherFucker :)'"
+    - bash -c "echo 'Hello MotherFucker :))'"
