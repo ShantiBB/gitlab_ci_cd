@@ -20,7 +20,8 @@ build_and_push:
 # Деплой на сервер
 deploy:
   stage: deploy
-  image: alpine:latest
+  tags:
+    - ssh
   before_script:
     - apk add --no-cache openssh sshpass
   script:
