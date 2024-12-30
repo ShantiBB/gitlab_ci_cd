@@ -5,7 +5,7 @@ stages:
 build_and_push:
   stage: build_and_push
   tags:
-    - docker:dind
+    - docker
   script:
     - echo "Вход в Docker Hub"
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
