@@ -5,10 +5,7 @@ from fastapi import APIRouter
 from app.api.v1.validations.wallets import WalletValidation
 from app.core.database.db_helper import AsyncSessionDep
 from app.wallets.dao import WalletDAO
-from app.wallets.schemas import (
-    WalletCreateSchema,
-    WalletSchema,
-)
+from app.wallets.schemas import WalletCreateSchema, WalletSchema
 
 router = APIRouter(
     prefix="/wallets",
