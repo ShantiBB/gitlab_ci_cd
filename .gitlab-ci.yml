@@ -28,7 +28,7 @@ deploy:
     - sshpass -p "$SSH_PASSWORD" ssh -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "
         docker login -u '$DOCKER_USERNAME' -p '$DOCKER_PASSWORD' &&
         docker pull $DOCKER_IMAGE:$DOCKER_TAG &&
-        cd /path/to/your/docker-compose-directory &&
+        cd wallet_project/ &&
         docker compose up -d &&
         docker system prune -af --volumes"
   only:
