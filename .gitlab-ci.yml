@@ -22,11 +22,11 @@ deploy_job:
   tags:
     - shell
   script:
-    - echo "Авторизация в Docker Hub"
+    - echo "Вход в Docker Hub"
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - echo "Обновление образа из Docker Hub"
+    - echo "Обновление образа"
     - docker pull $DOCKER_IMAGE
-    - echo "Запуск контейнера "
+    - echo "Запуск контейнера"
     - sudo bash -c "docker compose -f /root/wallet_project/docker-compose.yml down"
     - sudo bash -c "docker compose -f /root/wallet_project/docker-compose.yml up -d"
     - docker system prune -f
