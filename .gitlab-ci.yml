@@ -28,7 +28,7 @@ deploy:
     - echo "Обновление образа из Docker Hub"
     - docker pull $DOCKER_IMAGE
     - cd /root/wallet_project/
-    - echo "Запуск контейнера"
+    - echo "Запуск контейнера "
     - docker compose down
     - docker compose up -d
     - docker system prune
