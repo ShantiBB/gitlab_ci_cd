@@ -10,8 +10,7 @@ build_and_push:
     - docker:dind
   script:
     - echo "Вход в Docker Hub"
-    - echo "$DOCKER_PASSWORD" | \
-      docker login -u "$DOCKER_USERNAME" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - echo "Сборка и пуш образа"
     - docker build --platform=linux/amd64 -t $DOCKER_IMAGE .
     - docker push $DOCKER_IMAGE
@@ -25,8 +24,7 @@ deploy:
     - shell
   script:
     - echo "Авторизация в Docker Hub"
-    - echo "$DOCKER_PASSWORD" | \
-      docker login -u "$DOCKER_USERNAME" --password-stdin
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - echo "Обновление образа из Docker Hub"
     - sudo docker pull $DOCKER_IMAGE
     - cd wallet_project/
