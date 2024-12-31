@@ -24,7 +24,7 @@ deploy:
     - shell
   script:
     - echo "Авторизация в Docker Hub"
-    - docker login -u '$DOCKER_USERNAME' -p '$DOCKER_PASSWORD'
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - echo "Обновление образа из Docker Hub"
     - docker pull $DOCKER_IMAGE
     - cd wallet_project/
