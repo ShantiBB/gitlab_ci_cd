@@ -27,7 +27,8 @@ deploy:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - echo "Обновление образа из Docker Hub"
     - sudo bash -c "docker pull $DOCKER_IMAGE"
-    - sudo bash -c "cd /root/wallet_project/docker/"
+    - sudo bash -c "cd /root/wallet_project/"
+    - ls
     - echo "Запуск контейнера "
     - sudo bash -c "docker compose down"
     - sudo bash -c "docker compose up -d"
