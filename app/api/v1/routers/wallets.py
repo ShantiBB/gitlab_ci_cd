@@ -27,8 +27,8 @@ async def create_wallet(
 @router.get("/")
 async def get_all_wallets(
     session: AsyncSessionDep,
-) -> dict:
-    return {"status": "Ну получается запушил :)"}
+) -> list[WalletSchema]:
+    return await WalletDAO.get_all(session)
 
 
 @router.get("/{wallet_id}/")
