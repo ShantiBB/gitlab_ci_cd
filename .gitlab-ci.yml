@@ -2,21 +2,22 @@ stages:
   - build_and_push
   - deploy
 
-#build_and_push:
-#  stage: build_and_push
-#  tags:
-#    - docker
-#  services:
-#    - docker:dind
-#  script:
-#    - echo "Вход в Docker Hub"
-#    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-#    - echo "Сборка и пуш образа"
-#    - docker build --platform=linux/amd64 -t $DOCKER_IMAGE .
-#    - docker push $DOCKER_IMAGE
-#  only:
-#    - main
-#
+# Сборка и пуш образа в DockerHub
+build_and_push:
+  stage: build_and_push
+  tags:
+    - docker
+  services:
+    - docker:dind
+  script:
+    - echo "Вход в Docker Hub"
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    - echo "Сборка и пуш образа"
+    - docker build --platform=linux/amd64 -t $DOCKER_IMAGE .
+    - docker push $DOCKER_IMAGE
+  only:
+    - main
+
 ## Деплой на сервер
 deploy:
   stage: deploy
