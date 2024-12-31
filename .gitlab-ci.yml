@@ -2,22 +2,22 @@ stages:
   - build_and_push
   - deploy
 
-build_and_push:
-  stage: build_and_push
-  tags:
-    - docker
-  services:
-    - docker:dind
-  script:
-    - echo "Вход в Docker Hub"
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - echo "Сборка и пуш образа"
-    - docker build --platform=linux/amd64 -t $DOCKER_IMAGE .
-    - docker push $DOCKER_IMAGE
-  only:
-    - main
-
-# Деплой на сервер
+#build_and_push:
+#  stage: build_and_push
+#  tags:
+#    - docker
+#  services:
+#    - docker:dind
+#  script:
+#    - echo "Вход в Docker Hub"
+#    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+#    - echo "Сборка и пуш образа"
+#    - docker build --platform=linux/amd64 -t $DOCKER_IMAGE .
+#    - docker push $DOCKER_IMAGE
+#  only:
+#    - main
+#
+## Деплой на сервер
 deploy:
   stage: deploy
   tags:
@@ -27,6 +27,7 @@ deploy:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - echo "Обновление образа из Docker Hub"
     - sudo bash -c "docker pull $DOCKER_IMAGE"
+    - ls
     - sudo bash -c "cd /root/wallet_project/"
     - ls
     - echo "Запуск контейнера "
