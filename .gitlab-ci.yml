@@ -10,6 +10,7 @@ build_and_push:
     - docker:dind
   variables:
     DOCKER_HOST: tcp://docker:2375
+    DOCKER_TLS_CERTDIR: ""
   script:
     - echo "Вход в Docker Hub"
     - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
