@@ -29,6 +29,7 @@ deploy:
     - sudo bash -c "docker pull $DOCKER_IMAGE"
     - sudo bash -c "cd /root/wallet_project/"
     - echo "Запуск контейнера "
+    - ls
     - sudo bash -c "docker compose down"
     - sudo bash -c "docker compose up -d"
     - sudo bash -c "docker system prune"
