@@ -25,10 +25,10 @@ deploy_job:
     - echo "Авторизация в Docker Hub"
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - echo "Обновление образа из Docker Hub"
-    - sudo bash -c "docker pull $DOCKER_IMAGE"
+    - docker pull $DOCKER_IMAGE
     - echo "Запуск контейнера "
-    - sudo bash -c "docker compose -f /root/wallet_project/docker-compose.yml down"
-    - sudo bash -c "docker compose -f /root/wallet_project/docker-compose.yml up -d"
-    - sudo bash -c "docker system prune"
+    - docker compose -f /root/wallet_project/docker-compose.yml down
+    - docker compose -f /root/wallet_project/docker-compose.yml up -d
+    - docker system prune
   only:
     - main
