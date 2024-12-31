@@ -31,8 +31,8 @@ deploy:
     - sudo bash -c "cd /root/wallet_project/"
     - ls
     - echo "Запуск контейнера "
-    - sudo bash -c "docker compose down"
-    - sudo bash -c "docker compose up -d"
+    - sudo bash -c "docker compose -f /root/wallet_project/docker-compose.yml down"
+    - sudo bash -c "docker compose -f /root/wallet_project/docker-compose.yml up -d"
     - sudo bash -c "docker system prune"
   only:
     - main
