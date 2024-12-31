@@ -26,11 +26,11 @@ deploy:
     - echo "Авторизация в Docker Hub"
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
     - echo "Обновление образа из Docker Hub"
-    - sudo docker pull $DOCKER_IMAGE
+    - docker pull $DOCKER_IMAGE
     - cd wallet_project/
     - echo "Запуск контейнера"
-    - sudo docker compose down
-    - sudo docker compose up -d
-    - sudo docker system prune
+    - docker compose down
+    - docker compose up -d
+    - docker system prune
   only:
     - main
