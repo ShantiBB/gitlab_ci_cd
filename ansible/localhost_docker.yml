@@ -1,8 +1,0 @@
-- hosts: localhost
-
-  tasks:
-    - name: Build docker image
-      community.docker.docker_image_build:
-        name: "{{ localhost_docker_image }}"
-        path: "{{ localhost_dockerfile_path }}"
-        platform: "{{ localhost_docker_image_platform }}"
