@@ -1,0 +1,32 @@
+- hosts: STAGE_SERVERS_WEB
+  vars_files:
+    - playbook_vars/docker_vars.yml
+
+  tasks:
+    - name: Docker login
+      community.docker.docker_login:
+        username: "{{ remote_docker_username }}"
+        password: "{{ remote_docker_password }}"
+
+    - name: Restart docker compose
+      block:
+        - name: Pull
+          community.docker.docker_compose_v2_pull:
+            project_src: "{{ remote_project_source }}"
+
+        - name: Down
+          community.docker.docker_compose_v2:
+            project_src: "{{ remote_project_source }}"
+            state: absent
+
+        - name: Up
+          community.docker.docker_compose_v2:
+            project_src: "{{ remote_project_source }}"
+          register: output
+
+        - name: Prune
+          community.docker.docker_prune:
+            containers: true
+            images: true
+            networks: true
+            volumes: true
