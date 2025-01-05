@@ -1,12 +1,12 @@
-- hosts: STAGE_SERVERS_WEB
+- hosts: "{{playbook_host}}"
   vars_files:
     - playbook_vars/docker_vars.yml
 
   tasks:
     - name: Docker login
       community.docker.docker_login:
-        username: "{{ remote_docker_username }}"
-        password: "{{ remote_docker_password }}"
+        username: "{{ docker_username }}"
+        password: "{{ docker_password }}"
 
     - name: Restart docker compose
       block:

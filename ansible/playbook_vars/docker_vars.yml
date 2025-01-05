@@ -1,6 +1,8 @@
+playbook_host   : "localhost"
+docker_username : "shantibb"
+docker_password : "cHq-FP9-GYa-Hqr"
+
 # remote_docker
-remote_docker_username : "shantibb"
-remote_docker_password : "cHq-FP9-GYa-Hqr"
 remote_project_source  : "/root/wallet_project"
 
 # localhost_docker:
