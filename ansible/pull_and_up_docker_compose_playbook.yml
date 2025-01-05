@@ -1,4 +1,4 @@
-- hosts: "{{playbook_host}}"
+- hosts: "{{ playbook_host }}"
   vars_files:
     - playbook_vars/docker_vars.yml
 
