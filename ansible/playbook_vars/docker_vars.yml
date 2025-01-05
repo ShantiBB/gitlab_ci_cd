@@ -1,11 +1,16 @@
-playbook_host   : "localhost"
+# hosts for playbooks
+build_and_push_docker_image_playbook_host : "localhost"
+pull_and_up_docker_compose_playbook_host  : "STAGE_SERVERS_WEB"
+
+# docker login
 docker_username : "shantibb"
 docker_password : "cHq-FP9-GYa-Hqr"
 
-# remote_docker
-remote_project_source  : "/root/wallet_project"
+# docker image info
+docker_image          : "backend"
+docker_image_tag      : "latest"
+docker_image_platform : "linux/amd64"
 
-# localhost_docker:
-localhost_docker_image          : "shantibb/backend:latest"
-localhost_dockerfile_path       : "{{ playbook_dir }}/../../"
-localhost_docker_image_platform : "linux/amd64"
+#paths
+dockerfile_path : "{{ playbook_dir }}/../../"
+project_path    : "/root/wallet_project"
