@@ -1,0 +1,19 @@
+- name: Build and push Docker image
+  hosts: STAGE_SERVERS_WEB
+  vars:
+    docker_username: "shantibb"
+    docker_password: "cHq-FP9-GYa-Hqr"
+    docker_image: "shantibb/backend"
+
+  tasks:
+    - name: Docker login
+      community.docker.docker_login:
+        username: "{{ docker_username }}"
+        password: "{{ docker_password }}"
+
+    - name: Pull docker image
+      community.docker.docker_image:
+        name: "{{ docker_image }}"
+        source: pull
+        pull:
+          platform: amd64
