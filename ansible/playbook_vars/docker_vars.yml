@@ -7,5 +7,5 @@ remote_project_source  : "/root/wallet_project"
 
 # localhost_docker:
 localhost_docker_image          : "shantibb/backend:latest"
-localhost_dockerfile_path       : "{{ playbook_dir }}/../"
+localhost_dockerfile_path       : "{{ playbook_dir }}/../../"
 localhost_docker_image_platform : "linux/amd64"

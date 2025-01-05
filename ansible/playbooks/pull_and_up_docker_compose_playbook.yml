@@ -1,6 +1,6 @@
-- hosts: "{{ playbook_host }}"
+- hosts: STAGE_SERVERS_WEB
   vars_files:
-    - playbook_vars/docker_vars.yml
+    - ../playbook_vars/docker_vars.yml
 
   tasks:
     - name: Docker login
