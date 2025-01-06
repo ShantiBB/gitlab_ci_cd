@@ -1,5 +1,6 @@
 - name: Build and push docker image project
   hosts: "{{ build_and_push_docker_image_playbook_host }}"
+  become: yes
 
   vars_files:
     - ../playbook_vars/docker_vars.yml

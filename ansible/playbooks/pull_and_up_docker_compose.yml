@@ -1,5 +1,6 @@
 - name: Restart docker compose images
   hosts: "{{ pull_and_up_docker_compose_playbook_host }}"
+  become: yes
 
   vars_files:
     - ../playbook_vars/docker_vars.yml
