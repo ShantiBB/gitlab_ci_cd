@@ -13,4 +13,4 @@ docker_image_platform : "linux/amd64"
 
 #paths
 dockerfile_path : "{{ playbook_dir }}/../../"
-project_path    : "/root/wallet_project"
+project_path    : "/root/wallet_project/"
