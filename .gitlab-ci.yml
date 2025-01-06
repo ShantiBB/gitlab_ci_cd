@@ -8,6 +8,6 @@ deploy:
     - sudo bash -c "docker compose -f "$DOCKER_COMPOSE_PATH" down"
     - cd ansible
     - echo "ANSIBLE_VAULT_PASSWORD" > vault_password.txt
-    - sudo bash -c "ansible-playbook playbook.yml -vault-password-file=vault_password.txt"
+    - sudo bash -c "ansible-playbook playbook.yml --vault-password-file=vault_password.txt"
   only:
     - main
