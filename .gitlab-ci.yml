@@ -9,9 +9,6 @@ deploy:
   tags: [shell]
   script:
     - sudo bash -c "docker compose -f "$DOCKER_COMPOSE_PATH" down"
-    - python3 -m venv .venv
-    - source .venv/bin/activate
-    - pip3 install ansible requests
     - cd ansible
     - ansible-playbook playbook.yml
   only:
