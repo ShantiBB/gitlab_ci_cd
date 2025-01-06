@@ -3,8 +3,8 @@
   become: yes
 
   vars_files:
-    - ../playbook_vars/docker_vars.yml
-    - ../playbook_vars/retry_task_vars.yml
+    - /root/wallet_project/ansible/playbook_vars/docker_vars.yml
+    - /root/wallet_project/ansible/playbook_vars/retry_task_vars.yml
 
   tasks:
     - include_tasks: tasks/login_to_docker.yml

@@ -3,8 +3,8 @@
   become: yes
 
   vars_files:
-    - ../playbook_vars/docker_vars.yml
-    - ../playbook_vars/retry_task_vars.yml
+    - /root/wallet_project/ansible/playbook_vars/docker_vars.yml
+    - /root/wallet_project/ansible/playbook_vars/retry_task_vars.yml
 
   tasks:
     - include_tasks: tasks/login_to_docker.yml
@@ -12,13 +12,6 @@
     - name: Pull
       community.docker.docker_compose_v2_pull:
         project_src: "{{ project_path }}"
-      retries: "{{ retries_count }}"
-      delay: "{{ delay_time }}"
-
-    - name: Down
-      community.docker.docker_compose_v2:
-        project_src: "{{ project_path }}"
-        state: absent
       retries: "{{ retries_count }}"
       delay: "{{ delay_time }}"
 
