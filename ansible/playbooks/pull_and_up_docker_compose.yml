@@ -15,13 +15,6 @@
       retries: "{{ retries_count }}"
       delay: "{{ delay_time }}"
 
-    - name: Down
-      community.docker.docker_compose_v2:
-        project_src: "{{ project_path }}"
-        state: absent
-      retries: "{{ retries_count }}"
-      delay: "{{ delay_time }}"
-
     - name: Up
       community.docker.docker_compose_v2:
         project_src: "{{ project_path }}"
