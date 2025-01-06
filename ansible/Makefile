@@ -1,3 +1,2 @@
 ansible_playbook:
-	ansible-playbook build_and_push_docker_image_playbook.yml
-	ansible-playbook pull_and_up_docker_compose_playbook.yml
+	ansible-playbook playbook.yml --ask-vault-pass

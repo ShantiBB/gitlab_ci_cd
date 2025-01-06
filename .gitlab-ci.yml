@@ -1,34 +1,12 @@
 stages:
-  - build_and_push
   - deploy
 
-# Сборка и пуш образа в DockerHub
-build_and_push_job:
-  stage: build_and_push
-  tags:
-    - shell
-  script:
-    - echo "Вход в Docker Hub"
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - echo "Сборка и пуш образа"
-    - docker build --platform=linux/amd64 -t "$DOCKER_IMAGE" .
-    - docker push "$DOCKER_IMAGE"
-  only:
-    - main
-
-## Деплой на сервер
-deploy_job:
+deploy:
   stage: deploy
-  tags:
-    - shell
+  tags: [shell]
   script:
-    - echo "Вход в Docker Hub"
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-    - echo "Обновление образа"
-    - docker pull "$DOCKER_IMAGE"
-    - echo "Запуск контейнера"
     - sudo bash -c "docker compose -f "$DOCKER_COMPOSE_PATH" down"
-    - sudo bash -c "docker compose -f "$DOCKER_COMPOSE_PATH" up -d"
-    - docker system prune -f
+    - cd ansible
+    - sudo bash -c "ansible-playbook playbook.yml"
   only:
     - main
