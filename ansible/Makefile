@@ -1,2 +1,2 @@
 ansible_playbook:
-	ansible-playbook playbook.yml --ask-vault-pas
+	ansible-playbook playbook.yml --ask-vault-pass
