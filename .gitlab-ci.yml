@@ -10,9 +10,6 @@ deploy:
   script:
     - sudo bash -c "docker compose -f "$DOCKER_COMPOSE_PATH" down"
     - cd ansible
-    - cat playbook_vars/docker_vars.yml
-    - whoami
-    - ls /root/wallet_project/
-    - ansible-playbook playbook.yml
+    - sudo bash -c "ansible-playbook playbook.yml"
   only:
     - main
