@@ -4,13 +4,12 @@ stages:
 variables:
   ANSIBLE_HOST_KEY_CHECKING: "False"
 
-before_script:
-  - python3 -m venv .venv
-  - source .venv/bin/activate
-  - pip3 install ansible
-
 deploy:
   stage: deploy
+  tags: [shell]
   script:
+    - python3 -m venv .venv
+    - source .venv/bin/activate
+    - pip3 install ansible
     - cd ansible
     - ansible-playbook playbook.yml
